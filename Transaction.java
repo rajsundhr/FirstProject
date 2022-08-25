@@ -1,7 +1,7 @@
 
 public class Transaction {
          
-		 int t_id;
+         int t_id;
          String type;
          double balance;
          double amount;

@@ -37,7 +37,6 @@ public class BankingApp {
 					if (customer==null) {
 						System.out.println("Wrong CustomerId");
 					    break; }
-					
 					while(count!=0) {
 					System.out.println("Enter your password");
 					password = scan.next();
@@ -51,18 +50,16 @@ public class BankingApp {
 							break;
 						}
 						else 
-							System.out.println("Oh! Wrong Password: "+(count)+" attempts only left");
+				         	System.out.println("Oh! Wrong Password: "+(count)+" attempts only left");
 					  } 
 					}
-					
 					if(count==0)
 						break;
-					
 			        Login(customer);
 			        break;
 			case 4: Topncustomers(); 
 				     break;
-			case 5: return ;
+			case 5:  return ;
 			default: System.out.println("Invalid input\nTry again");
 		}
 		
@@ -130,32 +127,32 @@ public class BankingApp {
 			        	}
 			        break;
 			case 3: System.out.println("Enter an amount to Deposit");
-	                amount = scan.nextDouble();
-	        	    customer.balance += amount;
-	        	    customer.Addtransaction(new Transaction("Cash Deposit",amount,customer.balance));
-	        	    System.out.println("Rs."+amount+" Deposited Successfully"+"\nNewbalance is "+customer.balance);
-	        	    break;
+	                  	 amount = scan.nextDouble();
+	        	    	customer.balance += amount;
+	        	    	customer.Addtransaction(new Transaction("Cash Deposit",amount,customer.balance));
+	        	    	System.out.println("Rs."+amount+" Deposited Successfully"+"\nNewbalance is "+customer.balance);
+	        	   	 break;
 			case 4: System.out.println("Enter Account number to which money transferred");
-	                account = scan.nextLong();
-	                transact = findCustomer(account);
+	               		 account = scan.nextLong();
+	               		 transact = findCustomer(account);
 					if (transact==null) {
 						System.out.println("Wrong Account Number\nTry again");
 					    break; }
-	                System.out.println("Enter an amount to transfer");
+	               		 System.out.println("Enter an amount to transfer");
 			        amount = scan.nextDouble();
-	                if(customer.balance-amount<2000) {
-	        	    System.out.println("Entered Amount is incorrect, Minbalance Rs.2000 should be maintained\nTry again");
-	                 }
-	                else {
-	        	    customer.balance -= amount;
-	        	    transact.balance += amount;
-	        	    type = "CashDeposit To "+transact.AcNo;
-	        	    customer.Addtransaction(new Transaction(type,amount,customer.balance));
-	        	    type = "CashDeposit From "+customer.AcNo;
-	        	    transact.Addtransaction(new Transaction(type,amount,transact.balance));
-	        	    System.out.println("Rs."+amount+" Deposited Successfully to "+transact.AcNo+"\nYour Newbalance is "+customer.balance);
-	        	    }
-	                break;
+	               		 if(customer.balance-amount<2000) {
+	        	    		System.out.println("Entered Amount is incorrect, Minbalance Rs.2000 should be maintained\nTry again");
+	                	 }
+	                	else {
+	        	   	 customer.balance -= amount;
+	        	   	 transact.balance += amount;
+	        	   	 type = "CashDeposit To "+transact.AcNo;
+	        	    	customer.Addtransaction(new Transaction(type,amount,customer.balance));
+	        	    	type = "CashDeposit From "+customer.AcNo;
+	        	    	transact.Addtransaction(new Transaction(type,amount,transact.balance));
+	        	    	System.out.println("Rs."+amount+" Deposited Successfully to "+transact.AcNo+"\nYour Newbalance is "+customer.balance);
+	        	    	}
+	                	break;
 			case 5: customer.ShowAllTransaction();
 			        break;
 			case 6:  int count =3;
@@ -180,9 +177,9 @@ public class BankingApp {
 			        password=(Encryption(getpwd()));
 			        customer.en_pwd=password;
 			        System.out.println("Password changed Successfully");
-	        	    break;
+	        	   	 break;
 			case 7: System.out.println("Logout Successfully\nRedirect to Main Menu");
-    	            return;     
+    	            		return;     
 			default: System.out.println("Invalid input\nTry again");
 		     }
 	  }while(choice!=7);
